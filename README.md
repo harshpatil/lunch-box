@@ -1,4 +1,4 @@
 # lunch-box
 Backend app using spring boot 
 
-API Doc --> http://localhost:8080/swagger-ui.html#/
+Once you clone and run, click on http://localhost:8080/swagger-ui.html#/ for all the api documentation.
