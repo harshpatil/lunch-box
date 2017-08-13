@@ -20,8 +20,6 @@ public class DishController {
     public ResponseEntity<Object> addMenu(@RequestBody Dish dish){
         return dishService.postDish(dish);
     }
-
-
     
     @ApiOperation(value = "Get all dishes", notes = "returns all the dishes")
     @RequestMapping(method = RequestMethod.GET)
