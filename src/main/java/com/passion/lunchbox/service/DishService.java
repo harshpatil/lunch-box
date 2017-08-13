@@ -24,7 +24,6 @@ public class DishService {
         } catch (Exception e){
             return new ResponseEntity<>(new ApiError("Error is getting dishes"), HttpStatus.BAD_REQUEST);
         }
-
     }
 
     public ResponseEntity<Object> postDish(Dish dish){
