@@ -100,7 +100,7 @@
 				<configuration>
 					<excludes>
 						<exclude>**/config/**</exclude>
-						<exclude>**/constant/**</exclude>
+						<exclude>**/com.passion.lunchbox.constant/**</exclude>
 						<exclude>**/model/**</exclude>
 						<exclude>**/serializer/**</exclude>
 						<exclude>**/controller/bi/resp/**</exclude>
