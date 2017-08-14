@@ -24,25 +24,24 @@ public class UserController {
         return userService.addUser(createUserRequest);
     }
 
-    @ApiOperation(value = "Get All Users", notes = "Get user by id")
+    @ApiOperation(value = "Get User by Id", notes = "Get user by id")
     @RequestMapping(path = "/{userId}", method = RequestMethod.GET)
     public ResponseEntity<Object> getUser(@PathVariable (value = "userId") String userId){
         return userService.getUser(userId);
     }
 
-    @ApiOperation(value = "Get All Users", notes = "Update user's password")
+    @ApiOperation(value = "Update Password", notes = "Update user's password")
     @RequestMapping(path = "/{userId}", method = RequestMethod.PUT)
     public ResponseEntity<Object> updateUser(@PathVariable (value = "userId") String userId,
                                              @RequestBody UpdatePasswordRequest updatePasswordRequest){
         return userService.updatePassword(userId, updatePasswordRequest);
     }
 
-    @ApiOperation(value = "Get All Users", notes = "delete a user")
+    @ApiOperation(value = "Delete User", notes = "delete a user")
     @RequestMapping(path = "/{userId}", method = RequestMethod.DELETE)
     public ResponseEntity<Object> deleteUser(@PathVariable (value = "userId") String userId){
         return userService.deleteUser(userId);
     }
-
 
     @ApiOperation(value = "Get All Users", notes = "Get all users")
     @RequestMapping(method = RequestMethod.GET)
