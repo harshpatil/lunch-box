@@ -1,9 +1,9 @@
 package com.passion.lunchbox.model;
 
+import com.passion.lunchbox.dto.Orders;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Data

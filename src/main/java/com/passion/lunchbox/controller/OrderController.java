@@ -1,6 +1,6 @@
 package com.passion.lunchbox.controller;
 
-import com.passion.lunchbox.model.Orders;
+import com.passion.lunchbox.dto.Orders;
 import com.passion.lunchbox.model.OrdersList;
 import com.passion.lunchbox.repository.OrdersRepository;
 import io.swagger.annotations.ApiOperation;

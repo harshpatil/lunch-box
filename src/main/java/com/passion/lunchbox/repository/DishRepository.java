@@ -1,6 +1,6 @@
 package com.passion.lunchbox.repository;
 
-import com.passion.lunchbox.model.Dish;
+import com.passion.lunchbox.dto.Dish;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
