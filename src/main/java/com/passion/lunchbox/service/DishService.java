@@ -26,17 +26,16 @@ public class DishService {
             dishes.setCount(dishes.getDishList().size());
             return new ResponseEntity<>(dishes, HttpStatus.OK);
         } catch (Exception e){
-            return new ResponseEntity<>(new ApiError("Error is getting dishes"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new ApiError("Error in getting dishes"), HttpStatus.BAD_REQUEST);
         }
     }
 
     public ResponseEntity<Object> postDish(Dish dish){
-
         try {
             dishRepository.save(dish);
             return new ResponseEntity<>(dish, HttpStatus.CREATED);
         } catch (Exception e){
-            return new ResponseEntity<>(new ApiError("Error is saving to DB"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new ApiError("Error in saving to DB"), HttpStatus.BAD_REQUEST);
         }
     }
 }
