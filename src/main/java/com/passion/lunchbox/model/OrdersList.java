@@ -11,5 +11,5 @@ import java.util.List;
 public class OrdersList {
 
     private Integer count;
-    private List<Orders> listOfOrders;
+    private List<OrderDetails> listOfOrders;
 }

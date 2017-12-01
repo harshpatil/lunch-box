@@ -1,10 +1,11 @@
 package com.passion.lunchbox.controller;
 
 import com.passion.lunchbox.dto.Orders;
-import com.passion.lunchbox.model.OrdersList;
-import com.passion.lunchbox.repository.OrdersRepository;
+import com.passion.lunchbox.model.CreateOrderRequest;
+import com.passion.lunchbox.service.OrderService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
@@ -13,27 +14,23 @@ import org.springframework.web.bind.annotation.*;
 public class OrderController {
 
     @Autowired
-    private OrdersRepository ordersRepository;
+    private OrderService orderService;
 
     @ApiOperation(value = "Place an Order", notes = "place an order")
-    @PostMapping()
-    public @ResponseBody Orders addOrder(@RequestBody Orders orders){
-        ordersRepository.save(orders);
-        return orders;
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<Object> addOrder(@RequestBody CreateOrderRequest createOrderRequest){
+        return orderService.creteOrder(createOrderRequest);
     }
 
     @ApiOperation(value = "Get order details", notes = "get order details")
-    @GetMapping()
-    public @ResponseBody Orders getOrder(@RequestParam String orderId){
-        return ordersRepository.findByOrderId(orderId);
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<Object> getOrder(@RequestParam String orderId){
+        return orderService.getOrderDetails(orderId);
     }
 
-    @ApiOperation(value = "Get User detaisl", notes = "return uder details")
-    @GetMapping("/{userId}")
-    public @ResponseBody OrdersList getOrdersPlacedByUser(@PathVariable(value="userId") String userId){
-        OrdersList ordersList = new OrdersList();
-        ordersList.setListOfOrders(ordersRepository.findByUserId(userId));
-        ordersList.setCount(ordersList.getListOfOrders().size());
-        return ordersList;
+    @ApiOperation(value = "Get User detaisl", notes = "return order details")
+    @RequestMapping(path = "/{userId}", method = RequestMethod.GET)
+    public ResponseEntity<Object> getOrdersPlacedByUser(@PathVariable(value="userId") String userId){
+        return orderService.returnOrdersPlacedByGivenUser(userId);
     }
 }
